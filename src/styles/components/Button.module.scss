@@ -1,8 +1,15 @@
+$color: #e7d180 !default;
 .Button {
-  background-color: #e7d180;
+  background-color: $color;
   padding: 10px;
   color: whitesmoke;
   border-radius: 20px;
   margin-top: 10px;
   min-width: 100px;
+  transition: all .3s ease-in-out;
+
+  &:hover {
+    cursor: pointer;
+    background-color: darken(#e7d180, 5%);
+  }
 }

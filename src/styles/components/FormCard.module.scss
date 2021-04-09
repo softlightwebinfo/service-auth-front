@@ -11,6 +11,11 @@
   animation: startAnimation 2s linear forwards, endAnimation 1s linear 2s forwards;
 }
 
+.section {
+  animation: sectionAnimation .3s linear 2.5s forwards;
+  opacity: 0;
+}
+
 @keyframes startAnimation {
   0% {
     transform: scale(0.5);
@@ -43,5 +48,16 @@
     width: 100%;
     height: auto;
     border-radius: 35% 20px;
+  }
+}
+
+@keyframes sectionAnimation {
+  0% {
+    transform: scale(0.5);
+    opacity: 0.0;
+  }
+  100% {
+    transform: scale(1.0);
+    opacity: 1.0;
   }
 }

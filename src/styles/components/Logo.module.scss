@@ -1,4 +1,33 @@
-.Logo {
-  width: 200px;
+.LogoNoAnimation {
   margin-bottom: 50px;
+  width: 200px;
+}
+
+.Logo {
+  @extend .LogoNoAnimation;
+  animation: logoInitial 1s linear 2.1s forwards;
+  opacity: 0;
+  height: 0;
+  width: 0;
+}
+
+@keyframes logoInitial {
+  0% {
+    height: 20px;
+    width: 20px;
+    transform: scale(0.5);
+    opacity: 0.0;
+  }
+  50% {
+    height: auto;
+    width: 80px;
+    transform: scale(2.5);
+    opacity: 0.5;
+  }
+  100% {
+    height: auto;
+    width: 200px;
+    transform: scale(1.0);
+    opacity: 1.0;
+  }
 }

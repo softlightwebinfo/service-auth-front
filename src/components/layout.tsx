@@ -6,11 +6,11 @@ export default function Layout({children, title}) {
   return (
     <div className={styles.Layout}>
       <Head>
-        <title>{title}</title>
+        <title>{title} | Code Unic</title>
         <link rel="icon" href="/favicon.ico"/>
         <meta
           name="description"
-          content="Learn how to build a personal website using Next.js"
+          content="We are a computer services company in Mallorca, we are dedicated to programming Webs, APPs, software and any application with more than 15 years of experience in the sector. If you are looking to perform any programming service we are your best choice of trust, serious and responsible in our work. ASK US FOR BUDGETS WITHOUT COMMITMENT"
         />
         <meta
           property="og:image"

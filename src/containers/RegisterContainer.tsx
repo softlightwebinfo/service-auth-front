@@ -44,9 +44,9 @@ export const RegisterContainer = () => {
                     value={state.password}
                     type={"password"}
                 />
-                <Button type="submit">Login</Button>
+                <Button type="submit">Register</Button>
             </FormCard>
-            <Buttons login={false}/>
+            <Buttons register/>
         </>
     );
 };

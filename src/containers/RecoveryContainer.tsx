@@ -33,7 +33,7 @@ export const RecoveryContainer = () => {
                 />
                 <Button type="submit">Recovery</Button>
             </FormCard>
-            <Buttons login/>
+            <Buttons recovery/>
         </>
     );
 };

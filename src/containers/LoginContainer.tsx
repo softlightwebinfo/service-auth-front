@@ -4,14 +4,27 @@ import { Input } from "../components/Input";
 import { Button } from "../components/Button";
 import { Logo } from "../components/Logo";
 import { Buttons } from "../components/Buttons";
+import { apiRoute } from "../config/apiRoute";
 
 export const LoginContainer = () => {
     const [state, setState] = useState({
         email: "",
         password: ""
     });
-    const onSubmit = () => {
-        console.log("HOLA QUE TAL");
+    const onSubmit = (evt) => {
+        evt.preventDefault();
+        fetch(apiRoute.login, {
+            body: JSON.stringify(state),
+            method: "POST",
+            headers: {
+                'Accept': 'application/json',
+                'Content-Type': 'application/json'
+            }
+        })
+            .then(rs => rs.json())
+            .then(rs => {
+                console.log(rs)
+            });
     };
     const onChange = (evt) => {
         setState({
