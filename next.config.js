@@ -4,7 +4,7 @@ module.exports = {
     return [
       {
         source: '/api/:path*',
-        destination: `${API}/:path*`, // Matched parameters can be used in the destination
+        destination: `${API}/:path*`,
       },
     ]
   },

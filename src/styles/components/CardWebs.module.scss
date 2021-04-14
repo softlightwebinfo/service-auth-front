@@ -1,0 +1,36 @@
+.CardWebs {
+  display: grid;
+  grid-gap: 2em;
+
+  .Card {
+
+  }
+
+  @media (min-width: 768px) {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+
+.Article {
+  img {
+    width: 100%;
+  }
+
+  p {
+    margin-top: .5rem;
+  }
+
+  a {
+    display: block;
+    border: 1px solid gainsboro;
+    border-radius: 10px;
+    overflow: hidden;
+    padding: 10px;
+    box-shadow: 5px 5px 10px -10px;
+    transition: all .3s ease-in-out;
+
+    &:hover {
+      opacity: .7;
+    }
+  }
+}

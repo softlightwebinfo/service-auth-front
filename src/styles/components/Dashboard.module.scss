@@ -1,0 +1,23 @@
+.Dashboard {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  background-color: #be5959;
+
+  main {
+    background-color: white;
+    margin-left: auto;
+    margin-right: auto;
+    width: 100%;
+    max-width: 1024px;
+    border-radius: 15px;
+    margin-top: 20px;
+    padding: 20px;
+  }
+}
+
+.Logo {
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 5rem;
+}

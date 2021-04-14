@@ -5,15 +5,21 @@ import { Button } from "../components/Button";
 import { Logo } from "../components/Logo";
 import { Buttons } from "../components/Buttons";
 import { apiRoute } from "../config/apiRoute";
+import Router from 'next/router'
+import { setCookie } from "../lib/cookies";
 
 export const LoginContainer = () => {
     const [state, setState] = useState({
-        email: "",
+        username: "",
         password: ""
     });
+    const [loader, setLoader] = useState(false);
     const onSubmit = (evt) => {
         evt.preventDefault();
-        fetch(apiRoute.login, {
+        setLoader(true);
+        const page = "https://www.codeunic.com/dashboard"
+        const otherPage = false;
+        fetch(apiRoute.get("login"), {
             body: JSON.stringify(state),
             method: "POST",
             headers: {
@@ -22,8 +28,20 @@ export const LoginContainer = () => {
             }
         })
             .then(rs => rs.json())
-            .then(rs => {
-                console.log(rs)
+            .then(({data, message}) => {
+                setLoader(false);
+                if (!data && message) {
+                    alert(message);
+                    return;
+                }
+                setState({username: "", password: ""});
+                if (!otherPage) {
+                    setCookie("token", data.token, 1);
+                    setCookie("user", JSON.stringify(data.user), 1);
+                    Router.push("/dashboard");
+                } else {
+                    window.location.href = `${page}?token=${data.token}?token_type=${data.token_type}`;
+                }
             });
     };
     const onChange = (evt) => {
@@ -38,9 +56,9 @@ export const LoginContainer = () => {
             <FormCard onSubmit={onSubmit}>
                 <Input
                     onChange={onChange}
-                    name={"email"}
+                    name={"username"}
                     placeholder={"Email"}
-                    value={state.email}
+                    value={state.username}
                     type={"email"}
                 />
                 <Input
@@ -50,7 +68,9 @@ export const LoginContainer = () => {
                     value={state.password}
                     type={"password"}
                 />
-                <Button type="submit">Login</Button>
+                <Button type="submit" loader={loader}>
+                    Login
+                </Button>
             </FormCard>
             <Buttons login/>
         </>
