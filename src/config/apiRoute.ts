@@ -1,3 +1,7 @@
+import getConfig from 'next/config'
+
+const {serverRuntimeConfig, publicRuntimeConfig} = getConfig();
+
 class ApiRoute {
     constructor(
         private routes: { [p: string]: string },
@@ -14,12 +18,11 @@ class ApiRoute {
     }
 }
 
-
+const api = serverRuntimeConfig.WEB ?? publicRuntimeConfig.WEB;
 const apiRoute: ApiRoute = new ApiRoute({
     login: "api/auth/login",
     webs: "api/webs",
     update: "api/auth",
     register: "api/auth/signup",
-}, "http://localhost:3000");
-
+}, api);
 export { apiRoute }
